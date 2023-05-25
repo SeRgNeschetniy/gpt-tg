@@ -1,6 +1,7 @@
 import * as dotenv from "dotenv";
 import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
+import { ogg } from "./ogg.js";
 
 dotenv.config();
 
@@ -13,9 +14,13 @@ bot.on(message("voice"), async (ctx) => {
     const link = await ctx.telegram.getFileLink(ctx.message.voice.file_id);
     const userId = String(ctx.message.from.id);
     console.log(link.href);
-    await ctx.reply(JSON.stringify(link, null, 2));
+
+    const oggPath = await ogg.create(link.href, userId);
+    const mp3Path = await ogg.toMp3(oggPath, userId);
+
+    await ctx.reply(JSON.stringify(mp3Path, null, 2));
   } catch (error) {
-    console.log(`Error while voice message`, e.message);
+    console.log(`Error while voice message`, error.message);
   }
 });
 
