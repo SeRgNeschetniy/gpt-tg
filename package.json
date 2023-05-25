@@ -1,0 +1,27 @@
+{
+  "name": "gpt-tg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/main.js",
+    "start": "node ./src/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeRgNeschetniy/gpt-tg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeRgNeschetniy/gpt-tg/issues"
+  },
+  "homepage": "https://github.com/SeRgNeschetniy/gpt-tg#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.22"
+  }
+}
